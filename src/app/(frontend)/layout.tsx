@@ -1,13 +1,30 @@
 import { ReactNode } from "react";
 import "../globals.css";
 import { Inter } from "next/font/google";
+import { siteConfig } from "@/sanity/config/site";
+import { MainNav } from "@/components/navbar/main-nav";
+import Wrapper from "@/components/wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Canny Management: Premier Manpower Services in India",
-  description:
-    "Canny Management specializes in providing a wide range of Manpower Services, including Labor Manpower Services and Construction Workers Manpower Services. We operate throughout India, with a particular focus on Gujarat, Ahmedabad, Vadodara, Baroda, Gandhidham, Porbander, Odisha, Tamil Nadu, Karnataka, and West Bengal.",
+  title: siteConfig.name,
+  description: siteConfig.description,
+  keywords: [
+    "Labour services",
+    "Labour agency",
+    "Labour agency in Ahmedabad",
+    "Labour agency in Gujarat",
+    "Labour agency in India",
+    "Manpower services",
+    "Manpower agency",
+    "Manpower agency in Ahmedabad",
+    "Manpower agency in Gujarat",
+    "Manpower agency in India",
+  ],
+  icons: {
+    icon: "/canny.png",
+  },
 };
 
 export default function RootLayout({
@@ -15,9 +32,16 @@ export default function RootLayout({
 }: {
   children: ReactNode;
 }) {
+
+
   return (
-    <html lang='en'>
-      <body className={inter.className}>{children}</body>
-    </html>
+    <Wrapper>
+      <html>
+        <body className={inter.className}>
+          <MainNav />
+          {children}
+        </body>
+      </html>
+    </Wrapper>
   );
 }

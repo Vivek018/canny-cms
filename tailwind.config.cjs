@@ -1,17 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     screens: {
-      monitor: "1800px",
-      desktop: "1200px",
-      tablet: "900px",
-      mobile: "600px",
-      "small-mobile": "400px",
+      xl: "1800px",
+      lg: "1200px",
+      md: "900px",
+      sm: "600px",
+      xs: "400px",
     },
     colors: {
       primary: "#0093D0",
@@ -21,6 +21,7 @@ module.exports = {
       "neutral-primary": "#F8F8F8",
       "neutral-secondary": "#CCCCCC",
       "neutral-tertiary": "#333333",
+      "neutral-shadow": "#33333310",
     },
     extend: {
       backgroundImage: {
@@ -30,5 +31,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
