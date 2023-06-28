@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
-import "../globals.css";
+import "../../globals.css";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/sanity/config/site";
-import { MainNav } from "@/components/navbar/main-nav";
 import Wrapper from "@/components/wrapper";
+import ComponentWrapper from "@/components/componentWrapper";
+import { Lang } from "@/types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,17 +30,16 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: {
   children: ReactNode;
+  params: { lang: Lang };
 }) {
-
-
   return (
-    <Wrapper>
-      <html>
+    <Wrapper lang={lang}>
+      <html className='max-w-[1500px] h-screen mx-auto'>
         <body className={inter.className}>
-          <MainNav />
-          {children}
+          <ComponentWrapper>{children}</ComponentWrapper>
         </body>
       </html>
     </Wrapper>

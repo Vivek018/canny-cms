@@ -18,7 +18,7 @@ export const page = defineType({
     }),
     defineField({
       name: "slug",
-      type: "localizedSlug",
+      type: "slug",
       options: { source: "name" },
       hidden: (context) => context?.document?.name === undefined,
       validation: (Rule) =>

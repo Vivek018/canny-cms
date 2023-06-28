@@ -7,11 +7,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      xl: "1800px",
-      lg: "1200px",
-      md: "900px",
-      sm: "600px",
-      xs: "400px",
+      xl: "1500px",
+      lg: "1100px",
+      md: "700px",
+      sm: "500px",
+      xs: "350px",
     },
     colors: {
       primary: "#0093D0",
@@ -22,6 +22,8 @@ module.exports = {
       "neutral-secondary": "#CCCCCC",
       "neutral-tertiary": "#333333",
       "neutral-shadow": "#33333310",
+      white: "#FFFFFF",
+      black: "#000000",
     },
     extend: {
       backgroundImage: {

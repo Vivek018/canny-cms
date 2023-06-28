@@ -1,3 +1,4 @@
+import { footer } from "./documents/footer";
 import { page } from "./documents/page";
 import { service } from "./documents/service";
 import { localizedSlug } from "./objects/localizedSlug";
@@ -8,6 +9,7 @@ export const schemas = [
   // documents
   service,
   page,
+  footer,
   // objects
   localizedSlug,
   localizedString,

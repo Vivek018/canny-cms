@@ -1,10 +1,6 @@
-import { Lang } from "@/types";
+import { Lang, i18nLanguageType } from "@/types";
 
-const languages: {
-  id: Lang;
-  title: string;
-  isDefault?: boolean;
-}[] = [
+const languages: i18nLanguageType[] = [
   { id: "en", title: "English", isDefault: true },
   { id: "hi", title: "हिंदी" },
   { id: "gu", title: "ગુજરાતી" },

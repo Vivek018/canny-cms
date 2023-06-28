@@ -20,7 +20,7 @@ export type LanguageContextType = {
   changeLang: (arg: Lang) => void;
 };
 
-export type Lang = "en" | "hi" | "gu";
+export type Lang = "en" | "hi" | "gu" | undefined;
 
 export type Page = {
   _id: string;
@@ -28,4 +28,18 @@ export type Page = {
   title: string;
   slug: string;
   content: text[];
+};
+
+export type FooterInfo = {
+  _id: string;
+  _createdAt: Date;
+  address: text[];
+  social: string[];
+  contact: string[];
+};
+
+export type i18nLanguageType = {
+  id: Lang;
+  title: string;
+  isDefault?: boolean | undefined;
 };

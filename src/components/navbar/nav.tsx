@@ -1,16 +1,36 @@
-import { Page } from "@/types";
-import { ReactNode } from "react";
+import Link from "next/link";
+import { Lang } from "@/types";
+import { MobileNav } from "./mobile-nav";
+import Image from "next/image";
+import CannyLogo from "@/assets/images/canny.png";
+import { cn } from "@/utils/cn";
+import { getPages } from "@/sanity/config/pages";
+import { DesktopNav } from "./desktop-nav";
+import { LangDropdown } from "./lang-dropdown";
+import { getLocale } from "@/context/language-context";
 
-type Props = {
-  items: Page[];
-  children?: ReactNode;
-};
+interface MainNavProps {
+  children?: React.ReactNode;
+}
 
-export function Nav({ items, children }: Props) {
+const commonStyles = "flex p-2 items-center space-x-2";
 
+export async function Nav({}: MainNavProps) {
+  const lang = getLocale();
+  const navItems = await getPages(lang as unknown as Lang);
   return (
-    <>
-      <div>nav</div>
-    </>
+    <div className='flex px-4 h-24 md:px-6 gap-2 md:my-7 items-center justify-between'>
+      <MobileNav items={navItems} />
+      <DesktopNav items={navItems} lang={lang} className='order-2' />
+      <Link href='/' className={cn(commonStyles, `w-32 md:w-36 md:order-1`)}>
+        <Image
+          src={CannyLogo}
+          alt='Canny Logo'
+          property='true'
+          className='object-contain'
+        />
+      </Link>
+      <LangDropdown commonStyles={commonStyles} lang={lang} />
+    </div>
   );
 }
