@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 import "../../globals.css";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/sanity/config/site";
-import Wrapper from "@/components/wrapper";
-import ComponentWrapper from "@/components/componentWrapper";
+import { ComponentWrapper } from "@/components/component-wrapper";
 import { Lang } from "@/types";
+import { ProviderWrapper } from "@/components/provider-wrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,12 +36,12 @@ export default function RootLayout({
   params: { lang: Lang };
 }) {
   return (
-    <Wrapper lang={lang}>
+    <ProviderWrapper lang={lang}>
       <html className='max-w-[1500px] h-screen mx-auto'>
         <body className={inter.className}>
           <ComponentWrapper>{children}</ComponentWrapper>
         </body>
       </html>
-    </Wrapper>
+    </ProviderWrapper>
   );
 }

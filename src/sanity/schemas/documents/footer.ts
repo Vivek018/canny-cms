@@ -14,17 +14,29 @@ export const footer = defineType({
     }),
     defineField({
       name: "social",
-      title: "socials",
+      title: "Socials",
       type: "array",
       of: [
         {
-          type: "localizedString",
+          type: "object",
+          fields: [
+            defineField({
+              name: "socialName",
+              title: "Social Name",
+              type: "localizedString",
+            }),
+            defineField({
+              name: "socialLink",
+              title: "Social Link",
+              type: "slug",
+            }),
+          ],
         },
       ],
     }),
     defineField({
       name: "contact",
-      title: "Contact",
+      title: "Contacts",
       type: "array",
       of: [
         {

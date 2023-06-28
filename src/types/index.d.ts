@@ -20,7 +20,7 @@ export type LanguageContextType = {
   changeLang: (arg: Lang) => void;
 };
 
-export type Lang = "en" | "hi" | "gu" | undefined;
+export type Lang = "en" | "hi" | "gu";
 
 export type Page = {
   _id: string;
@@ -34,7 +34,8 @@ export type FooterInfo = {
   _id: string;
   _createdAt: Date;
   address: text[];
-  social: string[];
+  socialName: string[];
+  socialLink: string[];
   contact: string[];
 };
 

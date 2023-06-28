@@ -16,13 +16,16 @@ interface MainNavProps {
 const commonStyles = "flex p-2 items-center space-x-2";
 
 export async function Nav({}: MainNavProps) {
-  const lang = getLocale();
-  const navItems = await getPages(lang as unknown as Lang);
+  const locale = getLocale();
+  const navItems = await getPages(locale as unknown as Lang);
   return (
     <div className='flex px-4 h-24 md:px-6 gap-2 md:my-7 items-center justify-between'>
-      <MobileNav items={navItems} />
-      <DesktopNav items={navItems} lang={lang} className='order-2' />
-      <Link href='/' className={cn(commonStyles, `w-32 md:w-36 md:order-1`)}>
+      <MobileNav items={navItems} lang={locale} />
+      <DesktopNav items={navItems} lang={locale} className='order-2' />
+      <Link
+        href={`/${locale}`}
+        className={cn(commonStyles, `w-32 md:w-36 md:order-1`)}
+      >
         <Image
           src={CannyLogo}
           alt='Canny Logo'
@@ -30,7 +33,7 @@ export async function Nav({}: MainNavProps) {
           className='object-contain'
         />
       </Link>
-      <LangDropdown commonStyles={commonStyles} lang={lang} />
+      <LangDropdown commonStyles={commonStyles} lang={locale} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Page } from "@/types";
+import { Lang, Page } from "@/types";
 import { ReactNode } from "react";
 import {
   DropdownMenuItem,
@@ -15,10 +15,11 @@ import Link from "next/link";
 
 type Props = {
   items: Page[];
+  lang: Lang;
   children?: ReactNode;
 };
 
-export function MobileNav({ items }: Props) {
+export function MobileNav({ items, lang }: Props) {
   const pathname = usePathname();
   const itemArray = items.filter((item) => item.slug !== pathname.substring(1));
 
@@ -32,11 +33,24 @@ export function MobileNav({ items }: Props) {
       <DropdownMenuContent className='mr-4'>
         <DropdownMenuSeparator />
         {itemArray.map((item) => (
-          <DropdownMenuItem key={item._id}>
-            <Link href={item.slug}>{item.title}</Link>
-          </DropdownMenuItem>
+          <MobileNavDropdownMenuItem key={item._id} lang={lang} item={item} />
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
 }
+
+const MobileNavDropdownMenuItem = ({
+  lang,
+  item,
+}: {
+  lang: Lang;
+  item: Page;
+}) => {
+  const url = `/${lang}/${item.slug}`;
+  return (
+    <DropdownMenuItem key={item._id}>
+      <Link href={url}>{item.title}</Link>
+    </DropdownMenuItem>
+  );
+};

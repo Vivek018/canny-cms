@@ -1,18 +1,17 @@
 import { ReactNode } from "react";
 import { Nav } from "./navbar/nav";
 import { Footer } from "./footer";
-import { Lang } from "@/types";
 
 type Props = {
   children?: ReactNode;
 };
 
-export default function ComponentWrapper({ children }: Props) {
+export function ComponentWrapper({ children }: Props) {
   return (
-    <>
+    <main className='flex flex-col'>
       <Nav />
       {children}
       <Footer />
-    </>
+    </main>
   );
 }

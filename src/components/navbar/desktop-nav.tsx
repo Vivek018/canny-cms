@@ -13,7 +13,12 @@ type Props = {
 
 export function DesktopNav({ items, className, lang }: Props) {
   return (
-    <div className={cn("hidden md:flex mx-auto text-sm", className)}>
+    <div
+      className={cn(
+        "hidden md:flex mx-auto text-sm",
+        className
+      )}
+    >
       {items.map((item) => (
         <DesktopNavItem key={item._id} item={item} lang={lang} />
       ))}
@@ -28,7 +33,7 @@ const DesktopNavItem = ({ item, lang }: { item: Page; lang: Lang }) => {
     <Link
       href={url}
       className={cn(
-        "flex-auto border-[1px] border-neutral-shadow shadow-md border-r-0 last:border-r-2 px-4 py-2 first:rounded-l-full last:rounded-r-full cursor-pointer hover:text-primary transition duration-200",
+        "flex-auto border-[1px] border-neutral-shadow shadow-sm border-r-0 last:border-r-2 px-4 py-2 first:rounded-l-full last:rounded-r-full cursor-pointer hover:text-primary transition duration-200",
         pathname === url && "bg-neutral-primary text-primary shadow-inner"
       )}
     >

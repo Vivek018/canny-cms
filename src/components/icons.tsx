@@ -1,20 +1,23 @@
 import {
   X,
   Loader2,
-  FacebookIcon,
-  LinkedinIcon,
+  Facebook,
+  Linkedin,
   Menu,
-  Text,
+  Contact,
   Languages,
+  Mail,
 } from "lucide-react";
 
 export const Icons = {
   menu: Menu,
   close: X,
   spinner: Loader2,
-  facebook: FacebookIcon,
-  linkedin: LinkedinIcon,
+  facebook: Facebook,
+  linkedin: Linkedin,
   lang: Languages,
+  contact: Contact,
+  mail: Mail,
   // chevronLeft: ChevronLeft,
   // chevronRight: ChevronRight,
   // trash: Trash,

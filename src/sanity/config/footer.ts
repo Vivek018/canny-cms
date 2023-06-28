@@ -4,12 +4,13 @@ import { config } from "./client-config";
 
 export async function getFooterInfo(lang: Lang): Promise<FooterInfo[]> {
   return createClient(config).fetch(
-    groq`*[_type=footer]{
+    groq`*[_type == "footer"]{
       _id,
       _createdAt,
-      "address": title.${lang},
-      "social": social.${lang}.current,
-      contact,
+      "address": address.${lang},
+      "socialName": social[].socialName.${lang},
+      "socialLink": social[].socialLink.current,
+      contact
     }`,
     {
       lang,
