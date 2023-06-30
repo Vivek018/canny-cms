@@ -19,12 +19,12 @@ export async function Nav({}: MainNavProps) {
   const locale = getLocale();
   const navItems = await getPages(locale as unknown as Lang);
   return (
-    <div className='flex px-4 h-24 md:px-6 gap-2 md:my-7 items-center justify-between'>
+    <section className='flex h-24 gap-2 md:my-7 items-center justify-between'>
       <MobileNav items={navItems} lang={locale} />
       <DesktopNav items={navItems} lang={locale} className='order-2' />
       <Link
         href={`/${locale}`}
-        className={cn(commonStyles, `w-32 md:w-36 md:order-1`)}
+        className={cn(commonStyles, `w-32 md:w-36 md:order-1 md:-ml-5`)}
       >
         <Image
           src={CannyLogo}
@@ -34,6 +34,6 @@ export async function Nav({}: MainNavProps) {
         />
       </Link>
       <LangDropdown commonStyles={commonStyles} lang={locale} />
-    </div>
+    </section>
   );
 }

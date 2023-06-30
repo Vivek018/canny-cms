@@ -4,6 +4,7 @@ import { defineConfig, isKeyedObject } from "sanity";
 import { internationalizedArray } from "sanity-plugin-internationalized-array";
 import { deskTool } from "sanity/desk";
 import { languageFilter } from "@sanity/language-filter";
+import { documentInternationalization } from "@sanity/document-internationalization";
 
 export const config = defineConfig({
   name: "default",
@@ -16,6 +17,11 @@ export const config = defineConfig({
   basePath: "/admin",
   plugins: [
     deskTool(),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: i18n.languages,
+      schemaTypes: ["service"],
+    }),
     internationalizedArray({
       languages: i18n.languages,
       defaultLanguages: [i18n.base],

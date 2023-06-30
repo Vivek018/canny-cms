@@ -21,6 +21,7 @@ type Props = {
 
 export function LangDropdown({ commonStyles, lang }: Props) {
   const pathname = usePathname();
+  
   const language = lang ? lang : "en";
   const langArray = i18n.languages.filter((lang) => lang.id !== language);
 
@@ -30,7 +31,7 @@ export function LangDropdown({ commonStyles, lang }: Props) {
         <div
           className={cn(
             commonStyles,
-            `order-3 p-2 rounded-sm md:mr-6 cursor-pointer hover:bg-neutral-shadow transition duration-200`
+            `order-3 p-2 rounded-sm cursor-pointer hover:bg-neutral-shadow transition duration-200`
           )}
         >
           <Icons.lang />

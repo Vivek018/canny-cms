@@ -7,6 +7,7 @@ import {
   Contact,
   Languages,
   Mail,
+  ArrowDown,
 } from "lucide-react";
 
 export const Icons = {
@@ -18,17 +19,5 @@ export const Icons = {
   lang: Languages,
   contact: Contact,
   mail: Mail,
-  // chevronLeft: ChevronLeft,
-  // chevronRight: ChevronRight,
-  // trash: Trash,
-  // post: FileText,
-  // settings: Settings,
-  // billing: CreditCard,
-  // ellipsis: MoreVertical,
-  // add: Plus,
-  // warning: AlertTriangle,
-  // user: User,
-  // arrowRight: ArrowRight,
-  // twitter: Twitter,
-  // check: Check,
+  arrowDown: ArrowDown,
 };

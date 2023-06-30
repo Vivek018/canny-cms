@@ -8,18 +8,16 @@ export function middleware(request: NextRequest) {
   let pathname = request.nextUrl.pathname;
   const langRegex = new RegExp(/\/(en|hi|gu)/g);
   const langMatches = pathname.match(langRegex)!;
-  let locale: Lang = undefined;
+  let locale: Lang = defaultLocale;
 
-  if (langMatches?.length > 1) {
+  if (langMatches?.length === 1) {
+    pathname = request.nextUrl.pathname;
+    return;
+  } else if (langMatches?.length > 1) {
     pathname = pathname.replace(langRegex, "");
     locale = langMatches?.pop() as Lang;
-  } else {
-    pathname = request.nextUrl.pathname;
   }
-
-  if (locale) {
-    return NextResponse.redirect(new URL(`${locale}/${pathname}`, request.url));
-  }
+  return NextResponse.redirect(new URL(`${locale}/${pathname}`, request.url));
 }
 
 export const config = {

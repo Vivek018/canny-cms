@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { Nav } from "./navbar/nav";
 import { Footer } from "./footer";
+import { Lang } from "@/types";
 
 type Props = {
   children?: ReactNode;
@@ -8,10 +9,10 @@ type Props = {
 
 export function ComponentWrapper({ children }: Props) {
   return (
-    <main className='flex flex-col'>
+    <section className='flex flex-col mx-6 md:mx-10 overflow-hidden'>
       <Nav />
-      {children}
+      <section className='my-6'>{children}</section>
       <Footer />
-    </main>
+    </section>
   );
 }

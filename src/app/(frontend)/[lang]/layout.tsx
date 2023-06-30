@@ -1,18 +1,21 @@
 import { ReactNode } from "react";
-import "../../globals.css";
+import "../globals.css";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/sanity/config/site";
 import { ComponentWrapper } from "@/components/component-wrapper";
 import { Lang } from "@/types";
 import { ProviderWrapper } from "@/components/provider-wrapper";
+import { setLocale } from "@/context/language-context";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], preload: true });
 
 export const metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   keywords: [
-    "Labour services",
+    "Skilled Labour services",
+    "Semi skilled Labour services",
+    "Unskilled Labour services",
     "Labour agency",
     "Labour agency in Ahmedabad",
     "Labour agency in Gujarat",
@@ -24,7 +27,7 @@ export const metadata = {
     "Manpower agency in India",
   ],
   icons: {
-    icon: "/canny.png",
+    icon: "canny.png",
   },
 };
 
@@ -35,9 +38,10 @@ export default function RootLayout({
   children: ReactNode;
   params: { lang: Lang };
 }) {
+  setLocale(lang);
   return (
-    <ProviderWrapper lang={lang}>
-      <html className='max-w-[1500px] h-screen mx-auto'>
+    <ProviderWrapper>
+      <html className='max-w-[1400px] min-w-[250px] mx-auto'>
         <body className={inter.className}>
           <ComponentWrapper>{children}</ComponentWrapper>
         </body>

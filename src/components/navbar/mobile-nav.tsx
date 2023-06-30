@@ -12,6 +12,7 @@ import {
 import { Icons } from "../icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { cn } from "@/utils/cn";
 
 type Props = {
   items: Page[];
@@ -30,10 +31,15 @@ export function MobileNav({ items, lang }: Props) {
           <Icons.menu />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='mr-4'>
+      <DropdownMenuContent className='ml-2'>
         <DropdownMenuSeparator />
         {itemArray.map((item) => (
-          <MobileNavDropdownMenuItem key={item._id} lang={lang} item={item} />
+          <MobileNavDropdownMenuItem
+            key={item._id}
+            lang={lang}
+            item={item}
+            pathname={pathname}
+          />
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
@@ -43,14 +49,24 @@ export function MobileNav({ items, lang }: Props) {
 const MobileNavDropdownMenuItem = ({
   lang,
   item,
+  pathname,
 }: {
   lang: Lang;
   item: Page;
+  pathname: string;
 }) => {
   const url = `/${lang}/${item.slug}`;
   return (
-    <DropdownMenuItem key={item._id}>
-      <Link href={url}>{item.title}</Link>
-    </DropdownMenuItem>
+    <Link key={lang} href={url}>
+      <DropdownMenuItem
+        key={item._id}
+        className={cn(
+          "my-2",
+          pathname === url ? "hover:bg-white cursor-auto" : null
+        )}
+      >
+        {item.title}
+      </DropdownMenuItem>
+    </Link>
   );
 };

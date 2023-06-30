@@ -13,7 +13,7 @@ export async function Footer({}: Props) {
   const footerInfo = await getFooterInfo(locale);
   const { address, socialLink, socialName, contact } = footerInfo[0];
   return (
-    <footer className='px-6 md:px-12 lg:px-20 py-8 text-sm md:text-[16px] border-t-2 border-neutral-shadow flex flex-col gap-6 bg-footer-gradient text-neutral-primary text-center md:text-left'>
+    <footer className='rounded-lg my-6 px-4 md:px-6 lg:px-8 py-4 text-sm md:text-[16px] border-t-2 border-neutral-shadow flex flex-col gap-6 bg-footer-gradient text-neutral-primary text-center md:text-left'>
       <section className='flex flex-col md:flex-row justify-between'>
         <address className={cn("py-6 md:w-1/4 sm:leading-6 md:leading-9")}>
           {address}

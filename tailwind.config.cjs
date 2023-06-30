@@ -8,26 +8,26 @@ module.exports = {
   theme: {
     screens: {
       xl: "1500px",
-      lg: "1100px",
+      lg: "950px",
       md: "700px",
-      sm: "500px",
+      sm: "470px",
       xs: "350px",
     },
     colors: {
       primary: "#0093D0",
-      secondary: "#D08500",
-      "accent-primary": "#00A863",
-      "accent-secondary": "#E6007E",
+      accent: "#E6007E",
       "neutral-primary": "#F8F8F8",
       "neutral-secondary": "#CCCCCC",
-      "neutral-tertiary": "#333333",
       "neutral-shadow": "#33333310",
       white: "#FFFFFF",
       black: "#000000",
+      gray: "#333333",
+      transparent: "transparent",
     },
     extend: {
       backgroundImage: {
         "footer-gradient": "linear-gradient(135deg, #0093D0, #00B7E5);",
+        "title-gradient": "linear-gradient(to bottom left, #0093D0 , #E6007E);",
       },
     },
   },

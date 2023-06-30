@@ -1,59 +1,50 @@
-import { defineField, defineType } from "sanity";
+import { defineType, defineField } from "sanity";
 
 export const service = defineType({
+  title: "Service",
   name: "service",
-  title: "Services",
   type: "document",
   fields: [
     defineField({
-      name: "name",
-      title: "Name",
+      name: "language",
+      type: "string",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Hindi", value: "hi" },
+          { title: "Gujarati", value: "gu" },
+        ],
+      },
+    }),
+    defineField({
+      name: "title",
       type: "string",
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
-      type: "localizedSlug",
-      options: { source: "name" },
-      validation: (Rule) =>
-        Rule.required().error(
-          "A slug is required to generate a page on the website"
-        ),
-      hidden: (context) => context?.document?.name === undefined,
+      name: "description",
+      type: "text",
     }),
     defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "localizedString",
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-      hidden: (context) => context?.document?.name === undefined,
-    }),
-    defineField({
-      name: "url",
-      title: "URL",
-      type: "url",
-      validation: (Rule) => Rule.required(),
-      hidden: (context) => context?.document?.name === undefined,
-    }),
-    defineField({
-      name: "content",
-      title: "Content",
+      name: "body",
+      title: "Body",
       type: "array",
       of: [
         {
-          type: "localizedText",
+          type: "object",
+          fields: [
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+            }),
+            defineField({
+              name: "content",
+              title: "Content",
+              type: "text",
+            }),
+          ],
         },
       ],
-      validation: (Rule) => Rule.required(),
-      hidden: (context) => context?.document?.name === undefined,
     }),
   ],
 });

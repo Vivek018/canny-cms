@@ -39,6 +39,14 @@ export type FooterInfo = {
   contact: string[];
 };
 
+export type ServiceInfo = {
+  title: string;
+  _translations: Object[][];
+  language: Lang;
+  description: text;
+  body: [{ _key: string; title: string; content: text }];
+};
+
 export type i18nLanguageType = {
   id: Lang;
   title: string;

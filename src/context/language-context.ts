@@ -1,4 +1,3 @@
-import { Lang } from "@/types";
 import serverContext from "./server-context";
 import { i18n } from "@/utils/language";
 
