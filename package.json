@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.0.5",
+    "@radix-ui/react-select": "^1.2.2",
     "@sanity/document-internationalization": "^2.0.1",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "20.3.1",
@@ -26,6 +27,7 @@
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-visibility-sensor": "^5.1.1",
     "sanity": "^3.12.2",
     "sanity-plugin-internationalized-array": "^1.7.0",
     "styled-components": "^6.0.0-rc.6",

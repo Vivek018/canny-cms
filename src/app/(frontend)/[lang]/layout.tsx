@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "../globals.css";
 import { Inter } from "next/font/google";
-import { siteConfig } from "@/sanity/config/site";
+import { siteConfig } from "@/constants/site";
 import { ComponentWrapper } from "@/components/component-wrapper";
 import { Lang } from "@/types";
 import { ProviderWrapper } from "@/components/provider-wrapper";

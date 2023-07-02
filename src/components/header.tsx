@@ -7,7 +7,7 @@ type Props = {
 
 export function Header({ text, title, description, reverse = false }: Props) {
   return (
-    <header className='flex mt-12 md:h-96 py-6 border-b-[1px]'>
+    <header className='flex mt-12 md:h-80 py-6 border-b-[1px]'>
       <section
         className={
           "text-center mb-12 md:text-left sm:w-2/3 lg:w-[40%] mx-auto px-2 md:px-0  md:mx-0"

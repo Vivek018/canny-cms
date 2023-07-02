@@ -1,10 +1,10 @@
-import { Lang, ServiceInfo } from "@/types";
+import { AboutInfo, Lang } from "@/types";
 import { createClient, groq } from "next-sanity";
 import { config } from "./client-config";
 
-export async function getServiceInfo(lang: Lang): Promise<ServiceInfo[]> {
+export async function getAboutInfo(lang: Lang): Promise<AboutInfo[]> {
   return createClient(config).fetch(
-    groq`*[_type == "service" && language == $lang]{
+    groq`*[_type == "about" && language == $lang]{
   title,
   description,
   body,

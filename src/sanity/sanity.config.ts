@@ -20,7 +20,7 @@ export const config = defineConfig({
     documentInternationalization({
       // Required configuration
       supportedLanguages: i18n.languages,
-      schemaTypes: ["service"],
+      schemaTypes: ["service", "about"],
     }),
     internationalizedArray({
       languages: i18n.languages,

@@ -31,7 +31,7 @@ export function LangDropdown({ commonStyles, lang }: Props) {
         <div
           className={cn(
             commonStyles,
-            `order-3 p-2 rounded-sm cursor-pointer hover:bg-neutral-shadow transition duration-200`
+            `order-3 p-2.5 rounded-md cursor-pointer hover:bg-neutral-primary transition duration-200`
           )}
         >
           <Icons.lang />

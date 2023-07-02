@@ -47,6 +47,8 @@ export type ServiceInfo = {
   body: [{ _key: string; title: string; content: text }];
 };
 
+export type AboutInfo = ServiceInfo;
+
 export type i18nLanguageType = {
   id: Lang;
   title: string;

@@ -7,7 +7,9 @@ import {
   Contact,
   Languages,
   Mail,
-  ArrowDown,
+  ChevronDown,
+  ChevronsUpDown,
+  Check,
 } from "lucide-react";
 
 export const Icons = {
@@ -19,5 +21,7 @@ export const Icons = {
   lang: Languages,
   contact: Contact,
   mail: Mail,
-  arrowDown: ArrowDown,
+  arrowDown: ChevronDown,
+  arrowUpDown: ChevronsUpDown,
+  check: Check,
 };
