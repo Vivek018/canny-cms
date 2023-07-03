@@ -1,6 +1,6 @@
 import { getLocale } from "@/context/language-context";
 import { getFooterInfo } from "@/sanity/config/footer";
-import { Icons } from "./icons";
+import { Icons } from "@/common/Icons";
 import { cn } from "@/utils/cn";
 
 type Props = {};

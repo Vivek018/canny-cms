@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Lang } from "@/types";
-import { MobileNav } from "./mobile-nav";
+import { MobileNav } from "./MobileNav";
 import Image from "next/image";
 import CannyLogo from "@/assets/images/canny.png";
 import { cn } from "@/utils/cn";
 import { getPages } from "@/sanity/config/pages";
-import { DesktopNav } from "./desktop-nav";
-import { LangDropdown } from "./lang-dropdown";
+import { DesktopNav } from "./DesktopNav";
+import { LangDropdown } from "./LangDropdown";
 import { getLocale } from "@/context/language-context";
 
 interface MainNavProps {

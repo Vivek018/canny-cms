@@ -2,10 +2,10 @@ import { ReactNode } from "react";
 import "../globals.css";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/constants/site";
-import { ComponentWrapper } from "@/components/component-wrapper";
 import { Lang } from "@/types";
-import { ProviderWrapper } from "@/components/provider-wrapper";
 import { setLocale } from "@/context/language-context";
+import { ProviderWrapper } from "./_components/ProviderWrapper";
+import { ComponentWrapper } from "./_components/ComponentWrapper";
 
 const inter = Inter({ subsets: ["latin"], preload: true });
 

@@ -8,11 +8,12 @@ import {
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/Dropdown";
-import { Icons } from "../icons";
+} from "@/common/ui/Dropdown";
+import { Icons } from "@/common/Icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/utils/cn";
+import { Button } from "@/common/ui/Button";
 
 type Props = {
   items: Page[];
@@ -27,12 +28,11 @@ export function MobileNav({ items, lang }: Props) {
   return (
     <DropdownMenu key={pathname}>
       <DropdownMenuTrigger asChild>
-        <button className='flex md:hidden'>
+        <Button variant='icon' size='icon' className='flex md:hidden'>
           <Icons.menu />
-        </button>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className='ml-2'>
-        <DropdownMenuSeparator />
         {itemArray.map((item) => (
           <MobileNavDropdownMenuItem
             key={item._id}
@@ -55,7 +55,7 @@ const MobileNavDropdownMenuItem = ({
   item: Page;
   pathname: string;
 }) => {
-  const url = `/${lang}/${item.slug}`;
+  const url = item.slug ? `/${lang}/${item.slug}` : `/${lang}`;
   return (
     <Link key={lang} href={url}>
       <DropdownMenuItem

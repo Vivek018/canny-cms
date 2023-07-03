@@ -39,7 +39,7 @@ export type FooterInfo = {
   contact: string[];
 };
 
-export type ServiceInfo = {
+export type Info = {
   title: string;
   _translations: Object[][];
   language: Lang;
@@ -47,10 +47,17 @@ export type ServiceInfo = {
   body: [{ _key: string; title: string; content: text }];
 };
 
-export type AboutInfo = ServiceInfo;
+export type ContactInfo = Omit<Info, "body">;
 
 export type i18nLanguageType = {
   id: Lang;
   title: string;
   isDefault?: boolean | undefined;
+};
+
+type EmailForm = {
+  email: string;
+  name?: string;
+  subject: string;
+  message: text;
 };

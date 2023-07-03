@@ -1,4 +1,3 @@
-import { i18n } from "@/utils/language";
 import { defineType, defineField } from "sanity";
 
 export const about = defineType({
@@ -10,7 +9,11 @@ export const about = defineType({
       name: "language",
       type: "string",
       options: {
-        list: i18n.languages,
+        list: [
+          { title: "English", value: "en" },
+          { title: "Hindi", value: "hi" },
+          { title: "Gujarati", value: "gu" },
+        ],
       },
     }),
     defineField({

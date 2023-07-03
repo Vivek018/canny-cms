@@ -10,7 +10,7 @@ export const config = defineConfig({
   name: "default",
   title: "Canny Management Services",
 
-  projectId: "ssoyql19",
+  projectId: process.env.NEXT_APP_SANITY_PID!,
   dataset: "production",
 
   apiVersion: "2023-06-26",
@@ -20,7 +20,7 @@ export const config = defineConfig({
     documentInternationalization({
       // Required configuration
       supportedLanguages: i18n.languages,
-      schemaTypes: ["service", "about"],
+      schemaTypes: ["service", "about", "contact"],
     }),
     internationalizedArray({
       languages: i18n.languages,

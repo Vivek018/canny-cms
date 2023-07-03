@@ -23,13 +23,14 @@ export function DesktopNav({ items, className, lang }: Props) {
 
 const DesktopNavItem = ({ item, lang }: { item: Page; lang: Lang }) => {
   const pathname = usePathname();
-  const url = `/${lang}/${item.slug}`;
+  const url = item.slug ? `/${lang}/${item.slug}` : `/${lang}`;
   return (
     <Link
       href={url}
       className={cn(
-        "flex-auto border-[1px] border-neutral-shadow shadow-sm border-r-0 last:border-r-2 px-4 py-2 first:rounded-l-full last:rounded-r-full cursor-pointer hover:text-accent transition duration-200",
-        pathname === url && "bg-neutral-primary text-primary shadow-inner hover:text-primary cursor-auto"
+        "flex-auto border-[1px] border-neutral-shadow shadow-sm border-r-0 last:border-r-2 px-4 py-2 first:rounded-l-full last:rounded-r-full cursor-pointer hover:bg-neutral-primary transition duration-200",
+        pathname === url &&
+          "bg-neutral-shadow hover:bg-neutral-shadow text-primary shadow-inner cursor-auto"
       )}
     >
       <nav>{item.title}</nav>

@@ -1,4 +1,5 @@
 import { about } from "./documents/about";
+import { contact } from "./documents/contact";
 import { footer } from "./documents/footer";
 import { page } from "./documents/page";
 import { service } from "./documents/service";
@@ -11,6 +12,7 @@ export const schemas = [
   about,
   service,
   page,
+  contact,
   footer,
   // objects
   localizedSlug,

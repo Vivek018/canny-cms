@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
-import { ServiceInfo } from "@/types";
+import { Info } from "@/types";
 import { cn } from "@/utils/cn";
 import {
   Select,
@@ -10,14 +10,15 @@ import {
   SelectGroup,
   SelectTrigger,
   SelectValue,
-} from "../ui/Select";
-import { Icons } from "../icons";
+} from "./ui/Select";
+import { Icons } from "./Icons";
+import { Button } from "./ui/Button";
 
 type Props = {
-  body: ServiceInfo["body"];
+  body: Info["body"];
 };
 
-export function ServiceBody({ body }: Props) {
+export function InfoBody({ body }: Props) {
   const [activeKey, setActiveKey] = useState(body[0]._key);
   const [activeTitle, setActiveTitle] = useState(body[0].title);
 
@@ -29,7 +30,7 @@ export function ServiceBody({ body }: Props) {
   };
 
   return (
-    <section className='h-[400px] text-xs md:text-lg px-2 md:text-left my-16 flex flex-col lg:mx-10 md:mx-0'>
+    <section className='h-[450px] text-xs md:text-lg px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
       <article className='h-full flex flex-col sm:flex-row'>
         <div className='flex sm:hidden'>
           <Select key={activeKey}>
@@ -42,54 +43,54 @@ export function ServiceBody({ body }: Props) {
             <SelectContent>
               <SelectGroup>
                 {body.map(({ _key, title }) => (
-                  <div
+                  <Button
+                    variant='icon'
+                    size='full'
                     key={_key}
                     className={cn(
-                      "flex max-w-full justify-between items-center cursor-pointer my-2",
+                      "flex justify-between items-center cursor-pointer my-2",
                       _key === activeKey && "bg-neutral-shadow rounded-md"
                     )}
+                    onClick={() => {
+                      onTitleClick(_key);
+                    }}
                   >
-                    <h2
-                      className='relative rounded-sm p-2 text-xs outline-none focus:bg-neutral-shadow data-[disabled]:pointer-events-none data-[disabled]:opacity-50'
-                      onClick={() => {
-                        onTitleClick(_key);
-                      }}
-                    >
+                    <h2 className='rounded-sm p-2 text-xs focus:bg-neutral-shadow'>
                       {title}
                     </h2>
                     {_key === activeKey ? (
-                      <span className='mr-3'>
-                        <Icons.check className='h-4 w-4' />
-                      </span>
+                      <Icons.check className='h-4 w-4 mr-2' />
                     ) : null}
-                  </div>
+                  </Button>
                 ))}
               </SelectGroup>
             </SelectContent>
           </Select>
         </div>
-        <div className='hidden sm:w-[40%] md:w-1/3 h-full justify-around sm:flex flex-col sm:order-1'>
+        <div className='hidden sm:w-[40%] h-full justify-around sm:flex flex-col sm:order-1'>
           {body.map(({ _key, title }) => {
             return (
-              <h2
+              <Button
                 key={_key}
+                variant='ghost'
+                size="full"
                 className={cn(
-                  "sm:text-sm md:text-[16px] md:leading-6 lg:text-xl font-extrabold sm:hover:text-gray/50 sm:cursor-pointer sm:text-neutral-secondary transition duration-200",
+                  "text-sm md:text-[16px] md:leading-6 lg:text-xl font-extrabold justify-start uppercase text-left",
                   activeKey === _key &&
-                    "sm:text-black sm:cursor-auto sm:hover:text-black"
+                    "text-black cursor-auto hover:text-black"
                 )}
                 onClick={() => {
                   onTitleClick(_key);
                 }}
               >
                 {title}
-              </h2>
+              </Button>
             );
           })}
         </div>
         <span
           className={cn(
-            "hidden sm:flex h-0.5 w-full sm:w-0.5 sm:min-h-full lg:mx-20 sm:mx-10 bg-neutral-secondary order-3 sm:order-2 my-10 sm:my-0 ml-auto"
+            "hidden sm:flex h-0.5 w-full sm:w-0.5 sm:min-h-full  sm:mx-16 bg-neutral-secondary order-3 sm:order-2 my-10 sm:my-0 ml-auto"
           )}
         ></span>
         <div

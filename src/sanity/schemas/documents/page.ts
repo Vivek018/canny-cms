@@ -21,10 +21,6 @@ export const page = defineType({
       type: "slug",
       options: { source: "name" },
       hidden: (context) => context?.document?.name === undefined,
-      validation: (Rule) =>
-        Rule.required().error(
-          "A slug is required to generate a page on the website"
-        ),
     })
   ],
 });

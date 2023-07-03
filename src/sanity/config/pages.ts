@@ -10,7 +10,7 @@ export async function getPages(lang: Lang): Promise<Page[]> {
     language = lang;
   }
   return createClient(config).fetch(
-    groq`*[_type == "page"]{
+    groq`*[_type == "page"] | order(_createdAt desc){
       _id,
       _createdAt,
       "title": title.${language},

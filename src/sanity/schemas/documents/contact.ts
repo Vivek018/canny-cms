@@ -1,0 +1,28 @@
+import { defineType, defineField } from "sanity";
+
+export const contact = defineType({
+  title: "Contact",
+  name: "contact",
+  type: "document",
+  fields: [
+    defineField({
+      name: "language",
+      type: "string",
+      options: {
+        list: [
+          { title: "English", value: "en" },
+          { title: "Hindi", value: "hi" },
+          { title: "Gujarati", value: "gu" },
+        ],
+      },
+    }),
+    defineField({
+      name: "title",
+      type: "string",
+    }),
+    defineField({
+      name: "description",
+      type: "text",
+    }),
+  ],
+});

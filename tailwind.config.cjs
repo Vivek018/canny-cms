@@ -2,13 +2,13 @@
 module.exports = {
   content: [
     "./src/pages/**/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/common/**/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     screens: {
       xl: "1500px",
-      lg: "950px",
+      lg: "1000px",
       md: "700px",
       sm: "470px",
       xs: "350px",
