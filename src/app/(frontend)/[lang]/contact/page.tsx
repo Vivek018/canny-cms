@@ -11,7 +11,7 @@ type Props = {
 
 export default async function ContactPage({ params: { lang } }: Props) {
   const contactInfo = await getContactInfo(lang);
-  const { title, description } = contactInfo[0];
+  const { title, description, body  } = contactInfo[0];
   const [initialWords, finalWord] = separateWords(title);
 
   return (
@@ -22,7 +22,7 @@ export default async function ContactPage({ params: { lang } }: Props) {
         description={description}
         reverse
       />
-      <ContactForm />
+      <ContactForm body={body} />
     </main>
   );
 }

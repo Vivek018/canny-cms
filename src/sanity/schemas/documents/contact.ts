@@ -24,5 +24,22 @@ export const contact = defineType({
       name: "description",
       type: "text",
     }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "text",
+              title: "text",
+              type: "string",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
 });

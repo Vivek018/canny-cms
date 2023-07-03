@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 import { Info } from "@/types";
 import { cn } from "@/utils/cn";
@@ -21,18 +21,19 @@ type Props = {
 export function InfoBody({ body }: Props) {
   const [activeKey, setActiveKey] = useState(body[0]._key);
   const [activeTitle, setActiveTitle] = useState(body[0].title);
+  const scrollRef = useRef<HTMLDivElement>();
 
   const onTitleClick = (key: string) => {
+    const scrollRefElement = scrollRef.current!;
     const myElement = document.getElementById(key)!;
     const topPos = myElement.offsetTop;
-    const scrollElement = document.getElementById("scrolling_div")!;
-    scrollElement.scrollTop = topPos - 550;
+    scrollRefElement.scrollTop = topPos - scrollRefElement.offsetTop;
   };
 
   return (
     <section className='h-[450px] text-xs md:text-lg px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
       <article className='h-full flex flex-col sm:flex-row'>
-        <div className='flex sm:hidden'>
+        <aside className='flex sm:hidden'>
           <Select key={activeKey}>
             <SelectTrigger>
               <SelectValue
@@ -66,14 +67,14 @@ export function InfoBody({ body }: Props) {
               </SelectGroup>
             </SelectContent>
           </Select>
-        </div>
-        <div className='hidden sm:w-[40%] h-full justify-around sm:flex flex-col sm:order-1'>
+        </aside>
+        <aside className='hidden sm:w-[40%] h-full justify-around sm:flex flex-col sm:order-1'>
           {body.map(({ _key, title }) => {
             return (
               <Button
                 key={_key}
                 variant='ghost'
-                size="full"
+                size='full'
                 className={cn(
                   "text-sm md:text-[16px] md:leading-6 lg:text-xl font-extrabold justify-start uppercase text-left",
                   activeKey === _key &&
@@ -87,7 +88,7 @@ export function InfoBody({ body }: Props) {
               </Button>
             );
           })}
-        </div>
+        </aside>
         <span
           className={cn(
             "hidden sm:flex h-0.5 w-full sm:w-0.5 sm:min-h-full  sm:mx-16 bg-neutral-secondary order-3 sm:order-2 my-10 sm:my-0 ml-auto"
@@ -95,6 +96,7 @@ export function InfoBody({ body }: Props) {
         ></span>
         <div
           id='scrolling_div'
+          ref={scrollRef as RefObject<HTMLDivElement>}
           className={cn(
             "sm:w-[60%] md:w-2/3 overflow-scroll flex flex-col snap-y snap-mandatory scroll scroll-smooth hide-scrollbar gap-6 sm:order-3"
           )}

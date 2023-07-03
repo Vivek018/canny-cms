@@ -21,10 +21,13 @@ type Props = {
 };
 
 export function LangDropdown({ commonStyles, lang }: Props) {
-  const pathname = usePathname();
+  let pathname = usePathname();
 
   const language = lang ? lang : "en";
   const langArray = i18n.languages.filter((lang) => lang.id !== language);
+
+  const langRegex = new RegExp(/\/(en|hi|gu)/g);
+  const path = pathname.replace(langRegex, "");
 
   return (
     <DropdownMenu>
@@ -41,7 +44,7 @@ export function LangDropdown({ commonStyles, lang }: Props) {
         <DropdownMenuLabel>Languages</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {langArray.map((lang) => (
-          <Link key={lang.id} href={`${pathname}/${lang.id}`} replace={false}>
+          <Link key={lang.id} href={`/${lang.id}${path}`}>
             <DropdownMenuItem>{lang.title}</DropdownMenuItem>
           </Link>
         ))}

@@ -15,7 +15,7 @@ export type SiteConfig = {
   };
 };
 
-export type LanguageContextType = {
+export type LanguageConstringType = {
   lang: Lang;
   changeLang: (arg: Lang) => void;
 };
@@ -27,13 +27,13 @@ export type Page = {
   _createdAt: Date;
   title: string;
   slug: string;
-  content: text[];
+  content: string[];
 };
 
 export type FooterInfo = {
   _id: string;
   _createdAt: Date;
-  address: text[];
+  address: string[];
   socialName: string[];
   socialLink: string[];
   contact: string[];
@@ -43,11 +43,17 @@ export type Info = {
   title: string;
   _translations: Object[][];
   language: Lang;
-  description: text;
-  body: [{ _key: string; title: string; content: text }];
+  description: string;
+  body: [{ _key: string; title: string; content: string }];
 };
 
-export type ContactInfo = Omit<Info, "body">;
+export type ContactInfo = {
+  title: string;
+  _translations: Object[][];
+  language: Lang;
+  description: string;
+  body: { _key: string; text: string }[];
+};
 
 export type i18nLanguageType = {
   id: Lang;
@@ -56,8 +62,7 @@ export type i18nLanguageType = {
 };
 
 type EmailForm = {
-  email: string;
   name?: string;
   subject: string;
-  message: text;
+  message: string;
 };

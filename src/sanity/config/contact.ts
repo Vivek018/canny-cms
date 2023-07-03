@@ -7,10 +7,12 @@ export async function getContactInfo(lang: Lang): Promise<ContactInfo[]> {
     groq`*[_type == "contact" && language == $lang]{
   title,
   description,
+  body,
   language,
   "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
     title,
     description,
+    body,
     language
   },
 }`,

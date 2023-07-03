@@ -3,22 +3,31 @@
 import { Button } from "@/common/ui/Button";
 import { Input } from "@/common/ui/Input";
 import { Textarea } from "@/common/ui/Textarea";
-import { EmailForm } from "@/types";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ContactInfo, EmailForm } from "@/types";
+import { ChangeEvent, FormEvent, useState } from "react";
 
-type Props = {};
+type Props = {
+  body: ContactInfo["body"];
+};
 
-export function ContactForm({}: Props) {
+export function ContactForm({ body }: Props) {
+  console.log(body[0]);
+
   const [formState, setFormState] = useState<EmailForm>({
-    email: "",
     name: "",
     subject: "",
     message: "",
   });
 
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    const res = await fetch("api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formState),
+    });
   };
 
   const onFormChange = (
@@ -34,37 +43,27 @@ export function ContactForm({}: Props) {
   return (
     <section className='my-20'>
       <h2 className='font-extrabold text-lg mb-4 md:text-2xl'>
-        Let&apos;s discuss your needs!
+        {body[0].text}
       </h2>
       <form
         onSubmit={onFormSubmit}
         className='w-full flex flex-col justify-center'
       >
-        <div className='flex flex-col md:flex-row md:gap-6'>
-          <Input
-            placeholder='Email *'
-            type='email'
-            name='email'
-            required
-            value={formState.email}
-            onChange={onFormChange}
-          />
-          <Input
-            placeholder='Name'
-            name='name'
-            value={formState.name}
-            onChange={onFormChange}
-          />
-        </div>
         <Input
-          placeholder='Subject *'
+          placeholder={body[1].text}
+          name='name'
+          value={formState.name}
+          onChange={onFormChange}
+        />
+        <Input
+          placeholder={body[2].text}
           name='subject'
           required
           value={formState.subject}
           onChange={onFormChange}
         />
         <Textarea
-          placeholder='Message *'
+          placeholder={body[3].text}
           name='message'
           required
           value={formState.message}
@@ -73,9 +72,7 @@ export function ContactForm({}: Props) {
         <Button
           type='submit'
           className='mt-6 w-full sm:w-40 ml-auto'
-          disabled={
-            !(formState.email && formState.message && formState.subject)
-          }
+          disabled={!formState.message || !formState.subject}
         >
           Send
         </Button>

@@ -10,7 +10,7 @@ export const config = defineConfig({
   name: "default",
   title: "Canny Management Services",
 
-  projectId: process.env.NEXT_APP_SANITY_PID!,
+  projectId: process.env.NEXT_PUBLIC_SANITY_PID!,
   dataset: "production",
 
   apiVersion: "2023-06-26",
