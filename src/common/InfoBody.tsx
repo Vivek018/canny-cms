@@ -31,7 +31,7 @@ export function InfoBody({ body }: Props) {
   };
 
   return (
-    <section className='h-[650px] lg:h-[450px] px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
+    <section className='h-[520px] lg:h-[450px] px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
       <article className='h-full flex flex-col md:flex-row'>
         <aside className='flex md:hidden'>
           <Select key={activeKey}>
@@ -111,7 +111,7 @@ export function InfoBody({ body }: Props) {
                 <p
                   id={_key}
                   className={cn(
-                    "text-[16.5px] min-h-full my-auto lg:text-lg   leading-5 xs:leading-7 md:leading-8 lg:leading-10 sm: snap-start snap-always"
+                    "text-[15px] min-h-full my-auto lg:text-lg   leading-5 xs:leading-7 lg:leading-9 sm: snap-start snap-always"
                   )}
                 >
                   {content}
