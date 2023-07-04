@@ -30,7 +30,7 @@ export function Header({ text, title, description, reverse = false }: Props) {
             </>
           )}
         </h1>
-        <p className='text-gray/80 text-xs sm:text-sm md:text-[17px] md:leading-6 mt-4 md:mt-6'>
+        <p className='text-gray/80 text-sm sm:text-[15px] md:text-[17px] md:leading-6 mt-4 md:mt-6'>
           {description}
         </p>
       </section>
