@@ -4,7 +4,7 @@ import { getContactInfo } from "@/sanity/config/contact";
 import { Lang } from "@/types";
 import { separateWords } from "@/utils/separateWords";
 import { ContactForm } from "./_components/ContactForm";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import { siteConfig } from "@/constants";
 
 type Props = {
@@ -12,8 +12,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  { params: { lang } }: Props,
-  _parent?: ResolvingMetadata
+  { params: { lang } }: Props
 ): Promise<Metadata> {
   const contactInfo = await getContactInfo(lang);
   const { title, description  } = contactInfo[0];

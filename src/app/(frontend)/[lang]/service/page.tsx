@@ -5,15 +5,14 @@ import { getServiceInfo } from "@/sanity/config/service";
 
 import { Lang } from "@/types";
 import { separateWords } from "@/utils/separateWords";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: { lang: Lang };
 };
 
 export async function generateMetadata(
-  { params: { lang } }: Props,
-  _parent?: ResolvingMetadata
+  { params: { lang } }: Props
 ): Promise<Metadata> {
   const serviceInfo = await getServiceInfo(lang);
   const { title, description } = serviceInfo[0];
