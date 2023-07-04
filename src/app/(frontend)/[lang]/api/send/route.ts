@@ -2,7 +2,7 @@ import { EmailForm } from "@/types";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_SEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   const { message, subject, name } = (await req.json()) as unknown as EmailForm;
