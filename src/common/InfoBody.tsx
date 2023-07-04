@@ -37,7 +37,6 @@ export function InfoBody({ body }: Props) {
           <Select key={activeKey}>
             <SelectTrigger>
               <SelectValue
-                className='placeholder:text-sm important'
                 placeholder={activeTitle}
               />
             </SelectTrigger>

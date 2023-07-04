@@ -9,6 +9,8 @@ export type SiteConfig = {
   description: string;
   url: string;
   ogImage: string;
+  keywords: string[];
+  icons: { icon: string };
   links: {
     linkedIn: string;
     facebook: string;

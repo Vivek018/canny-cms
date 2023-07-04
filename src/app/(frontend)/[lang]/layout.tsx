@@ -7,29 +7,15 @@ import { setLocale } from "@/context/language-context";
 import { ProviderWrapper } from "./_components/ProviderWrapper";
 import { ComponentWrapper } from "./_components/ComponentWrapper";
 import { i18n } from "@/utils/language";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"], preload: true });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: [
-    "Skilled Labour services",
-    "Semi skilled Labour services",
-    "Unskilled Labour services",
-    "Labour agency",
-    "Labour agency in Ahmedabad",
-    "Labour agency in Gujarat",
-    "Labour agency in India",
-    "Manpower services",
-    "Manpower agency",
-    "Manpower agency in Ahmedabad",
-    "Manpower agency in Gujarat",
-    "Manpower agency in India",
-  ],
-  icons: {
-    icon: "canny.png",
-  },
+  keywords: siteConfig.keywords,
+  icons: siteConfig.icons,
 };
 
 export default function RootLayout({

@@ -4,10 +4,26 @@ import { getContactInfo } from "@/sanity/config/contact";
 import { Lang } from "@/types";
 import { separateWords } from "@/utils/separateWords";
 import { ContactForm } from "./_components/ContactForm";
+import { Metadata, ResolvingMetadata } from "next";
+import { siteConfig } from "@/constants";
 
 type Props = {
   params: { lang: Lang };
 };
+
+export async function generateMetadata(
+  { params: { lang } }: Props,
+  _parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const contactInfo = await getContactInfo(lang);
+  const { title, description  } = contactInfo[0];
+  return {
+    title: title,
+    description: description,
+    keywords: siteConfig.keywords,
+    icons: siteConfig.icons,
+  };
+}
 
 export default async function ContactPage({ params: { lang } }: Props) {
   const contactInfo = await getContactInfo(lang);

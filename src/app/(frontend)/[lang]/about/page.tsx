@@ -1,13 +1,29 @@
 import { Header } from "@/common/Header";
 import { InfoBody } from "@/common/InfoBody";
+import { siteConfig } from "@/constants";
 import { getAboutInfo } from "@/sanity/config/about";
 
 import { Lang } from "@/types";
 import { separateWords } from "@/utils/separateWords";
+import { Metadata, ResolvingMetadata } from "next";
 
 type Props = {
   params: { lang: Lang };
 };
+
+export async function generateMetadata(
+  { params: { lang } }: Props,
+  _parent?: ResolvingMetadata
+): Promise<Metadata> {
+  const aboutInfo = await getAboutInfo(lang);
+  const { title, description } = aboutInfo[0];
+  return {
+    title: title,
+    description: description,
+    keywords: siteConfig.keywords,
+    icons: siteConfig.icons,
+  };
+}
 
 export default async function AboutPage({ params: { lang } }: Props) {
   const aboutInfo = await getAboutInfo(lang);
