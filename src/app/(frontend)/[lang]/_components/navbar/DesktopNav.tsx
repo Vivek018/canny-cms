@@ -13,9 +13,8 @@ type Props = {
 };
 
 export function DesktopNav({ items, className, lang }: Props) {
-
   return (
-    <div className={cn("hidden md:flex mx-auto text-sm", className)}>
+    <div className={cn("hidden md:flex mx-auto text-[15px]", className)}>
       {items.map((item) => (
         <DesktopNavItem key={item._id} item={item} lang={lang} />
       ))}

@@ -8,10 +8,12 @@ type Props = {
 
 export function ComponentWrapper({ children }: Props) {
   return (
-    <section className='flex flex-col mx-6 md:mx-10 overflow-hidden'>
+    <>
       <Nav />
-      <section className='my-6'>{children}</section>
-      <Footer />
-    </section>
+      <div className='flex justify-between flex-col mx-6 md:mx-10 overflow-hidden my-28'>
+        <div className='my-6 relative'>{children}</div>
+        <Footer />
+      </div>
+    </>
   );
 }
