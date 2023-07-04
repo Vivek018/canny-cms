@@ -31,14 +31,12 @@ export function InfoBody({ body }: Props) {
   };
 
   return (
-    <section className='h-[650px] sm:h-[550px] md:h-[450px] px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
+    <section className='h-[650px] lg:h-[450px] px-2 md:text-left my-16 flex flex-col lg:mx-5 md:mx-0'>
       <article className='h-full flex flex-col md:flex-row'>
         <aside className='flex md:hidden'>
           <Select key={activeKey}>
             <SelectTrigger>
-              <SelectValue
-                placeholder={activeTitle}
-              />
+              <h2 className='text-sm sm:text-[16px]'>{activeTitle}</h2>
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -55,7 +53,7 @@ export function InfoBody({ body }: Props) {
                       onTitleClick(_key);
                     }}
                   >
-                    <h2 className='rounded-sm p-2 text-sm focus:bg-neutral-shadow'>
+                    <h2 className='rounded-sm p-2 text-sm focus:bg-neutral-shadow sm:text-[16px]'>
                       {title}
                     </h2>
                     {_key === activeKey ? (
@@ -113,7 +111,7 @@ export function InfoBody({ body }: Props) {
                 <p
                   id={_key}
                   className={cn(
-                    "xs:text-xs sm:text-[16px] min-h-full my-auto lg:text-[16px] sm:leading-6 snap-start snap-always"
+                    "text-[16.5px] min-h-full my-auto lg:text-lg   leading-5 xs:leading-7 md:leading-8 lg:leading-10 sm: snap-start snap-always"
                   )}
                 >
                   {content}
