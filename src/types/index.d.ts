@@ -32,6 +32,14 @@ export type Page = {
   content: string[];
 };
 
+export type WhyChooseUsInfo = {
+  _id: string;
+  _createdAt: Date;
+  title: string;
+  description: string;
+  image: string;
+};
+
 export type FooterInfo = {
   _id: string;
   _createdAt: Date;

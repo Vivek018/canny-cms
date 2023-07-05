@@ -3,21 +3,15 @@ import { config } from "./client-config";
 import { Lang, Page } from "@/types";
 
 export async function getPages(lang: Lang): Promise<Page[]> {
-  let language = "";
-  if (!lang) {
-    language = "en";
-  } else {
-    language = lang;
-  }
   return createClient(config).fetch(
     groq`*[_type == "page"] | order(_createdAt desc){
       _id,
       _createdAt,
-      "title": title.${language},
+      "title": title.${lang},
       "slug": slug.current
     }`,
     {
-      language,
+      lang,
     }
   );
 }
