@@ -51,7 +51,7 @@ export function Header({
           {description}
         </p>
       </div>
-      <div className="ml-auto">{rightComponent}</div>
+      <div className="md:w-1/3 lg:w-1/2 lg:ml-auto">{rightComponent}</div>
     </header>
   );
 }
