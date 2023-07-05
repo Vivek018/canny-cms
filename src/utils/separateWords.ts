@@ -1,5 +1,4 @@
-
-export const separateWords = (title: string) => {
+export const separateWords = (title: string, splitVal = -1) => {
   const words = title.split(" ");
-  return [words.slice(0, -1).join(" "), words.pop()!];
+  return [words.slice(0, splitVal).join(" "), words.pop()!];
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 let Globe = () => null;
 if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
@@ -70,7 +70,7 @@ const labelData = [
 ];
 
 export function GlobeComponent({}) {
-  const globeEl = useRef();
+  const globeEl = useRef<any>();
 
   useEffect(() => {
     globeEl.current.controls().enableZoom = false;
@@ -79,22 +79,22 @@ export function GlobeComponent({}) {
       lng: 77.571365,
       altitude: 1.75,
     });
-  }, []);
+  }, [globeEl]);
 
   return (
     <Globe
-      className=''
+      // @ts-expect-error
       width={700}
       height={700}
       ref={globeEl}
       backgroundColor={"rgba(0,0,0,0)"}
-      globeImageUrl={"/earth.jpeg"}
       labelsData={labelData}
-      labelLat={(d) => d.labelLat}
-      labelLng={(d) => d.labelLng}
-      labelSize={() => 0.7}
+      globeImageUrl={"earth.jpeg"}
+      labelLat={(d: any) => d.labelLat}
+      labelLng={(d: any) => d.labelLng}
+      labelText={() => ""}
       labelDotRadius={() => 0.3}
-      labelColor={(d) => (d.color ? d.color : "#E6007E")}
+      labelColor={(d: any) => (d.color ? d.color : "#E6007E")}
       labelResolution={2}
     />
   );

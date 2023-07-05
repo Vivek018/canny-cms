@@ -5,7 +5,7 @@ type Props = {
   lang: Lang;
 };
 
-export async function HeroSection({ lang }: Props) {
+export function HeroSection({ lang }: Props) {
   return (
     <section className='flex justify-between items-center'>
       <h1 className='w-1/2 text-5xl uppercase font-extrabold'>

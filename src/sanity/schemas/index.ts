@@ -1,6 +1,7 @@
 import { about } from "./documents/about";
 import { contact } from "./documents/contact";
 import { footer } from "./documents/footer";
+import { heroSection } from "./documents/hero-section";
 import { page } from "./documents/page";
 import { service } from "./documents/service";
 import { whyChooseUs } from "./documents/why-choose-us";
@@ -13,6 +14,7 @@ export const schemas = [
   about,
   service,
   page,
+  heroSection,
   whyChooseUs,
   contact,
   footer,
