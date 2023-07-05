@@ -1,14 +1,31 @@
+import { cn } from "@/utils/cn";
+import { ReactNode } from "react";
+
 type Props = {
   text: string;
   title: string;
   reverse?: boolean;
   description: string;
+  className?: string;
+  rightComponent?: ReactNode;
 };
 
-export function Header({ text, title, description, reverse = false }: Props) {
+export function Header({
+  className,
+  text,
+  title,
+  description,
+  reverse = false,
+  rightComponent,
+}: Props) {
   return (
-    <header className='flex my-auto md:h-[450px] py-6 items-end border-b-2 border-neutral-secondary'>
-      <section
+    <header
+      className={cn(
+        "flex my-auto md:h-full py-6 items-center",
+        className
+      )}
+    >
+      <div
         className={
           "text-center mb-12 md:text-left sm:w-2/3 md:w-1/2 lg:w-[40%] mx-auto px-2 md:px-0  md:mx-0"
         }
@@ -33,7 +50,8 @@ export function Header({ text, title, description, reverse = false }: Props) {
         <p className='text-gray/80 text-[15px] md:text-[17px] md:leading-6 mt-4 md:mt-6 mb-6'>
           {description}
         </p>
-      </section>
+      </div>
+      <div className="ml-auto">{rightComponent}</div>
     </header>
   );
 }

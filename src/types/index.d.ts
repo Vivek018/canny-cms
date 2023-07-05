@@ -65,6 +65,11 @@ export type ContactInfo = {
   body: { _key: string; text: string }[];
 };
 
+export type HeroSectionInfo = {
+  title: string;
+  description: string;
+};
+
 export type i18nLanguageType = {
   id: Lang;
   title: string;

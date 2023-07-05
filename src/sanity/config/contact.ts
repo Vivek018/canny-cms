@@ -1,4 +1,4 @@
-import { ContactInfo, Info, Lang } from "@/types";
+import { ContactInfo, Lang } from "@/types";
 import { createClient, groq } from "next-sanity";
 import { config } from "./client-config";
 

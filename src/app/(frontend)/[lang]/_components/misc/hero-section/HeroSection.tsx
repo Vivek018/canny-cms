@@ -1,17 +1,24 @@
 import { Lang } from "@/types";
 import { GlobeComponent } from "./GlobeComponent";
+import { getHeroSectionInfo } from "@/sanity/config/hero-section";
+import { separateWords } from "@/utils/separateWords";
+import { Header } from "@/common/Header";
 
 type Props = {
   lang: Lang;
 };
 
-export function HeroSection({ lang }: Props) {
+export async function HeroSection({ lang }: Props) {
+  const res = await getHeroSectionInfo(lang);
+  const { title, description } = res[0];
+  const [initialTitle, finalTitle] = separateWords(title, 1);
   return (
-    <section className='flex justify-between items-center'>
-      <h1 className='w-1/2 text-5xl uppercase font-extrabold'>
-        Welcome to Canny Management Services
-      </h1>
-      <GlobeComponent />
-    </section>
+      <Header
+        text={initialTitle}
+        title={finalTitle}
+        description={description}
+        reverse={lang !== "en"}
+        rightComponent={<GlobeComponent />}
+      />
   );
 }
