@@ -111,7 +111,6 @@ export function GlobeComponent({}) {
         height={width}
         ref={globeEl}
         backgroundColor={"rgba(0,0,0,0)"}
-        waitForGlobeReady={false}
         labelsData={labelData}
         globeImageUrl={"earth.jpeg"}
         labelLat={(d: any) => d.labelLat}
