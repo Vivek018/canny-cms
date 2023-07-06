@@ -6,7 +6,7 @@ import { useWindowWidth } from "@react-hook/window-size/throttled";
 let Globe = () => null;
 if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
 
-export function GlobeComponent({image}: {image: string}) {
+export function GlobeComponent() {
   const globeEl = useRef<any>();
   const onlyWidth = useWindowWidth();
   const [width, setWidth] = useState(550);
@@ -112,7 +112,7 @@ export function GlobeComponent({image}: {image: string}) {
         ref={globeEl}
         backgroundColor={"rgba(0,0,0,0)"}
         labelsData={labelData}
-        globeImageUrl={image}
+        globeImageUrl={'earth.jpeg'}
         labelLat={(d: any) => d.labelLat}
         labelLng={(d: any) => d.labelLng}
         labelText={() => ""}

@@ -18,7 +18,7 @@ export async function HeroSection({ lang }: Props) {
       title={finalTitle}
       description={description}
       reverse={lang !== "en"}
-      rightComponent={<GlobeComponent image={image} />}
+      rightComponent={<GlobeComponent />}
       rightComponentClassName='left-0 right-0 mx-auto md:justify-end md:items-end md:left-auto -bottom-[100px] md:bottom-20 lg:bottom-2 md:-right-4 lg:-right-10'
     />
   );
