@@ -1,6 +1,7 @@
 import { getWhyChooseUsInfo } from "@/sanity/config/why-choose-us";
 import { Lang, WhyChooseUsInfo } from "@/types";
 import Image from "next/image";
+import {Heading} from "./Heading";
 
 type Props = {
   lang: Lang;
@@ -15,8 +16,8 @@ const sectionTitle = {
 export async function WhyChooseUs({ lang }: Props) {
   const data = await getWhyChooseUsInfo(lang);
   return (
-    <section className='mt-48 md:mt-32 flex flex-col items-center'>
-      <h2 className="text-2xl md:text-4xl font-extrabold uppercase">{sectionTitle[lang]}</h2>
+    <section className='flex flex-col items-center'>
+      <Heading title={sectionTitle[lang]} />
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-x-4 gap-y-16 md:gap-y-24 place-items-center mt-20 md:mt-28'>
         {data.map((item) => (
           <WhyChooseUsItem key={item._id} item={item} />

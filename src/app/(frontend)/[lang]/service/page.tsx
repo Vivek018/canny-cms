@@ -1,5 +1,5 @@
 import { Header } from "@/common/Header";
-import HeaderRightImage from "@/common/HeaderRightImage";
+import {HeaderRightImage} from "@/common/HeaderRightImage";
 import { InfoBody } from "@/common/InfoBody";
 import { siteConfig } from "@/constants";
 import { getServiceInfo } from "@/sanity/config/service";
@@ -12,9 +12,9 @@ type Props = {
   params: { lang: Lang };
 };
 
-export async function generateMetadata(
-  { params: { lang } }: Props
-): Promise<Metadata> {
+export async function generateMetadata({
+  params: { lang },
+}: Props): Promise<Metadata> {
   const serviceInfo = await getServiceInfo(lang);
   const { title, description } = serviceInfo[0];
   return {

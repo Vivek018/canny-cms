@@ -1,5 +1,5 @@
 import { Header } from "@/common/Header";
-import HeaderRightImage from "@/common/HeaderRightImage";
+import { HeaderRightImage } from "@/common/HeaderRightImage";
 import { InfoBody } from "@/common/InfoBody";
 import { siteConfig } from "@/constants";
 import { getAboutInfo } from "@/sanity/config/about";
@@ -36,9 +36,7 @@ export default async function AboutPage({ params: { lang } }: Props) {
         text={initialWords}
         title={finalWord}
         description={description}
-        rightComponent={
-          <HeaderRightImage src={image} alt={title} />
-        }
+        rightComponent={<HeaderRightImage src={image} alt={title} />}
         reverse
       />
       <InfoBody body={body} />

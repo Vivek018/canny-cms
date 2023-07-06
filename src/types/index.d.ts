@@ -73,6 +73,11 @@ export type HeroSectionInfo = {
   description: string;
 };
 
+export type ClientList = {
+  name: string;
+  image: string;
+};
+
 export type i18nLanguageType = {
   id: Lang;
   title: string;

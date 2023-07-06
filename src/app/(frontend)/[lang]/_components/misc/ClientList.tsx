@@ -1,10 +1,20 @@
+import { Lang } from "@/types";
+import { Heading } from "./Heading";
 
-type Props = {}
+type Props = {
+  lang: Lang;
+};
 
-export function ClientList({}: Props) {
+const clientListTitle = {
+  en: "Our Clients",
+  hi: "हमारे ग्राहक",
+  gu: "અમારા ગ્રાહકો",
+};
+
+export function ClientList({ lang }: Props) {
   return (
-    <section>
-      <h2>Our Clients</h2>
+    <section className='flex flex-col items-center'>
+      <Heading title={clientListTitle[lang]} />
     </section>
-  )
+  );
 }

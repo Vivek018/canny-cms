@@ -1,4 +1,5 @@
 import { about } from "./documents/about";
+import { clientList } from "./documents/client-list";
 import { contact } from "./documents/contact";
 import { footer } from "./documents/footer";
 import { heroSection } from "./documents/hero-section";
@@ -16,6 +17,7 @@ export const schemas = [
   page,
   heroSection,
   whyChooseUs,
+  clientList,
   contact,
   footer,
   // objects

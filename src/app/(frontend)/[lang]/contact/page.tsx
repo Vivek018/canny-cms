@@ -6,17 +6,17 @@ import { separateWords } from "@/utils/separateWords";
 import { ContactForm } from "./_components/ContactForm";
 import { Metadata } from "next";
 import { siteConfig } from "@/constants";
-import HeaderRightImage from "@/common/HeaderRightImage";
+import {HeaderRightImage} from "@/common/HeaderRightImage";
 
 type Props = {
   params: { lang: Lang };
 };
 
-export async function generateMetadata(
-  { params: { lang } }: Props
-): Promise<Metadata> {
+export async function generateMetadata({
+  params: { lang },
+}: Props): Promise<Metadata> {
   const contactInfo = await getContactInfo(lang);
-  const { title, description  } = contactInfo[0];
+  const { title, description } = contactInfo[0];
   return {
     title: title,
     description: description,

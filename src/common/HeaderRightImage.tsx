@@ -5,7 +5,7 @@ type Props = {
   alt: string;
 };
 
-export default function HeaderRightImage({ src, alt }: Props) {
+export function HeaderRightImage({ src, alt }: Props) {
   return (
     <Image
       className='object-contain w-80 md:w-96 lg:w-[500px]'
