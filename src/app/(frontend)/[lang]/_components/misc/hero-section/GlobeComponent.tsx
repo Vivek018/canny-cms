@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useWindowWidth } from "@react-hook/window-size/throttled";
 
 let Globe = () => null;
 if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
 
 export function GlobeComponent({}) {
   const globeEl = useRef<any>();
+  const onlyWidth = useWindowWidth();
+  const [width, setWidth] = useState(550);
 
   const labelData = [
     {
@@ -79,16 +82,36 @@ export function GlobeComponent({}) {
       lng: 77.571365,
       altitude: 1.75,
     });
-  }, [globeEl]);
+  }, []);
+
+  useEffect(() => {
+    if (onlyWidth > 1000 && onlyWidth < 1300) {
+      setWidth(500);
+    } else if (onlyWidth > 850 && onlyWidth <= 1000) {
+      setWidth(400);
+    } else if (onlyWidth > 720 && onlyWidth <= 850) {
+      setWidth(320);
+    } else if (onlyWidth <= 720) {
+      setWidth(600);
+      if (globeEl.current) {
+        globeEl.current.pointOfView({ altitude: 2.3 });
+        globeEl.current.camera().position.y = -150;
+        globeEl.current.scene().position.y = -150;
+      }
+    } else {
+      setWidth(550);
+    }
+  }, [onlyWidth, globeEl]);
 
   return (
     <div>
       <Globe
         // @ts-expect-error
-        width={700}
-        height={700}
+        width={width}
+        height={width}
         ref={globeEl}
         backgroundColor={"rgba(0,0,0,0)"}
+        waitForGlobeReady={false}
         labelsData={labelData}
         globeImageUrl={"earth.jpeg"}
         labelLat={(d: any) => d.labelLat}

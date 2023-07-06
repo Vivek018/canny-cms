@@ -15,7 +15,7 @@ const sectionTitle = {
 export async function WhyChooseUs({ lang }: Props) {
   const data = await getWhyChooseUsInfo(lang);
   return (
-    <section className='my-20 flex flex-col items-center'>
+    <section className='mt-48 md:mt-20 flex flex-col items-center'>
       <h2 className="text-2xl md:text-4xl font-extrabold uppercase">{sectionTitle[lang]}</h2>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-x-4 gap-y-16 md:gap-y-24 place-items-center mt-20 md:mt-28'>
         {data.map((item) => (
