@@ -15,7 +15,7 @@ export function GlobeComponent({}) {
     {
       labelLat: 23.022505,
       labelLng: 72.571365,
-      color: "#ffffff",
+      color: "#E6007E",
     },
     {
       labelLat: 22.307159,
@@ -117,7 +117,7 @@ export function GlobeComponent({}) {
         labelLng={(d: any) => d.labelLng}
         labelText={() => ""}
         labelDotRadius={() => 0.3}
-        labelColor={(d: any) => (d.color ? d.color : "#E6007E")}
+        labelColor={(d: any) => (d.color ? d.color : "white")}
         labelResolution={2}
       />
     </div>
