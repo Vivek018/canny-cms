@@ -1,4 +1,5 @@
 import { Header } from "@/common/Header";
+import HeaderRightImage from "@/common/HeaderRightImage";
 import { InfoBody } from "@/common/InfoBody";
 import { siteConfig } from "@/constants";
 import { getServiceInfo } from "@/sanity/config/service";
@@ -26,12 +27,17 @@ export async function generateMetadata(
 
 export default async function ServicePage({ params: { lang } }: Props) {
   const serviceInfo = await getServiceInfo(lang);
-  const { title, body, description } = serviceInfo[0];
+  const { title, body, description, image } = serviceInfo[0];
   const [initialWords, finalWord] = separateWords(title);
 
   return (
     <main className='flex flex-col'>
-      <Header text={initialWords} title={finalWord} description={description} />
+      <Header
+        text={initialWords}
+        title={finalWord}
+        description={description}
+        rightComponent={<HeaderRightImage src={image} alt={title} />}
+      />
       <InfoBody body={body} />
     </main>
   );

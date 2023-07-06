@@ -25,6 +25,10 @@ export const about = defineType({
       type: "text",
     }),
     defineField({
+      name: "image",
+      type: "image",
+    }),
+    defineField({
       name: "body",
       title: "Body",
       type: "array",

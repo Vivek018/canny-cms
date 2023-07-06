@@ -15,5 +15,9 @@ export const heroSection = defineType({
       type: "localizedString",
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "image",
+      type: "image",
+    }),
   ],
 });

@@ -8,11 +8,13 @@ export async function getAboutInfo(lang: Lang): Promise<Info[]> {
   title,
   description,
   body,
+  "image": image.asset->url,
   language,
   "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
     title,
     description,
     body,
+    "image": image.asset->url,
     language
   },
 }`,

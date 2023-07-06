@@ -1,4 +1,5 @@
 import { Header } from "@/common/Header";
+import HeaderRightImage from "@/common/HeaderRightImage";
 import { InfoBody } from "@/common/InfoBody";
 import { siteConfig } from "@/constants";
 import { getAboutInfo } from "@/sanity/config/about";
@@ -11,11 +12,11 @@ type Props = {
   params: { lang: Lang };
 };
 
-export async function generateMetadata(
-  { params: { lang } }: Props
-): Promise<Metadata> {
+export async function generateMetadata({
+  params: { lang },
+}: Props): Promise<Metadata> {
   const aboutInfo = await getAboutInfo(lang);
-  const { title, description } = aboutInfo[0];
+  const { title, description, image } = aboutInfo[0];
   return {
     title: title,
     description: description,
@@ -26,7 +27,7 @@ export async function generateMetadata(
 
 export default async function AboutPage({ params: { lang } }: Props) {
   const aboutInfo = await getAboutInfo(lang);
-  const { title, body, description } = aboutInfo[0];
+  const { title, body, description, image } = aboutInfo[0];
   const [initialWords, finalWord] = separateWords(title);
 
   return (
@@ -35,6 +36,9 @@ export default async function AboutPage({ params: { lang } }: Props) {
         text={initialWords}
         title={finalWord}
         description={description}
+        rightComponent={
+          <HeaderRightImage src={image} alt={title} />
+        }
         reverse
       />
       <InfoBody body={body} />

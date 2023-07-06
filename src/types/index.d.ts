@@ -54,6 +54,7 @@ export type Info = {
   _translations: Object[][];
   language: Lang;
   description: string;
+  image: string;
   body: [{ _key: string; title: string; content: string }];
 };
 
@@ -62,11 +63,13 @@ export type ContactInfo = {
   _translations: Object[][];
   language: Lang;
   description: string;
+  image: string;
   body: { _key: string; text: string }[];
 };
 
 export type HeroSectionInfo = {
   title: string;
+  image: string;
   description: string;
 };
 

@@ -6,6 +6,7 @@ import { separateWords } from "@/utils/separateWords";
 import { ContactForm } from "./_components/ContactForm";
 import { Metadata } from "next";
 import { siteConfig } from "@/constants";
+import HeaderRightImage from "@/common/HeaderRightImage";
 
 type Props = {
   params: { lang: Lang };
@@ -26,7 +27,7 @@ export async function generateMetadata(
 
 export default async function ContactPage({ params: { lang } }: Props) {
   const contactInfo = await getContactInfo(lang);
-  const { title, description, body  } = contactInfo[0];
+  const { title, description, body, image } = contactInfo[0];
   const [initialWords, finalWord] = separateWords(title);
 
   return (
@@ -35,6 +36,7 @@ export default async function ContactPage({ params: { lang } }: Props) {
         text={initialWords}
         title={finalWord}
         description={description}
+        rightComponent={<HeaderRightImage src={image} alt={title} />}
         reverse
       />
       <ContactForm body={body} />
