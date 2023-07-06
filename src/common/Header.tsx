@@ -23,7 +23,7 @@ export function Header({
   return (
     <header
       className={cn(
-        "flex flex-col h-[280px] md:h-[450px] md:flex-row my-auto md:py-6 relative justify-start items-center",
+        "flex flex-col h-[250px] md:h-[450px] md:flex-row my-auto md:py-6 relative justify-start items-center",
         className
       )}
     >
@@ -32,7 +32,7 @@ export function Header({
           "text-center mt-8 sm:mt-12 md:text-left sm:w-2/3 md:w-[46%] px-2 md:px-0 md:mx-0 backdrop-invert-0"
         }
       >
-        <h1 className='text-[15px] sm:text-lg md:text-xl lg:text-3xl font-extrabold uppercase'>
+        <h1 className='text-xl lg:text-3xl font-extrabold uppercase'>
           {!reverse ? (
             <>
               {text}{" "}
@@ -55,7 +55,7 @@ export function Header({
       </div>
       <div
         className={cn(
-          "md:w-1/2 flex md:ml-auto justify-center items-center absolute md:static opacity-20 md:opacity-100 -z-10 md:z-0",
+          "md:w-1/2 mt-20 flex md:ml-auto justify-center items-center absolute md:static opacity-10 md:opacity-100 -z-10 md:z-0",
           rightComponentClassName
         )}
       >

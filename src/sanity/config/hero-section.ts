@@ -8,7 +8,6 @@ export async function getHeroSectionInfo(lang: Lang): Promise<HeroSectionInfo[]>
       _id,
       _createdAt,
       "title": title.${lang},
-      "image": image.asset->url,
       "description": description.${lang},
     }`,
     {

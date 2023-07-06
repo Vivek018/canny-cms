@@ -10,7 +10,7 @@ type Props = {
 
 export async function HeroSection({ lang }: Props) {
   const res = await getHeroSectionInfo(lang);
-  const { title, description, image } = res[0];
+  const { title, description } = res[0];
   const [initialTitle, finalTitle] = separateWords(title, 1);
   return (
     <Header
