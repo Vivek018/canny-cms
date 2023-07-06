@@ -74,6 +74,7 @@ export type HeroSectionInfo = {
 };
 
 export type ClientList = {
+  _id: string;
   name: string;
   image: string;
 };

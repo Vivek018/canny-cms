@@ -55,7 +55,7 @@ export function Header({
       </div>
       <div
         className={cn(
-          "md:w-1/2 mt-20 flex md:ml-auto justify-center items-center absolute md:static opacity-10 md:opacity-100 -z-10 md:z-0",
+          "md:w-1/2 mt-20 flex md:ml-auto justify-center items-center absolute md:static opacity-15 md:opacity-100 -z-10 md:z-0",
           rightComponentClassName
         )}
       >
