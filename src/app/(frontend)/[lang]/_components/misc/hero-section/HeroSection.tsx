@@ -19,7 +19,7 @@ export async function HeroSection({ lang }: Props) {
       description={description}
       reverse={lang !== "en"}
       rightComponent={<GlobeComponent />}
-      rightComponentClassName='left-0 right-0 mx-auto md:justify-end md:items-end md:left-auto -bottom-[100px] md:bottom-20 lg:bottom-2 md:-right-4 lg:-right-10 opacity-30'
+      rightComponentClassName='left-0 right-0 mx-auto md:justify-end md:items-end md:left-auto -bottom-[100px] md:bottom-20 lg:bottom-2 md:-right-4 lg:-right-10 opacity-40'
     />
   );
 }
