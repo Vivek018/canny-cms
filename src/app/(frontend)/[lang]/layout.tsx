@@ -30,7 +30,7 @@ export default function RootLayout({
   else setLocale(i18n.base);
   return (
     <ProviderWrapper>
-      <html className='max-w-[1700px] min-w-[250px] mx-auto'>
+      <html lang={lang} className='max-w-[1700px] min-w-[250px] mx-auto'>
         <body className={` ${inter.className}`}>
           <ComponentWrapper>{children}</ComponentWrapper>
         </body>
