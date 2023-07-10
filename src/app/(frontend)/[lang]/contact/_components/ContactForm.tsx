@@ -11,7 +11,6 @@ type Props = {
 };
 
 export function ContactForm({ body }: Props) {
-  console.log(body[0]);
 
   const [formState, setFormState] = useState<EmailForm>({
     name: "",

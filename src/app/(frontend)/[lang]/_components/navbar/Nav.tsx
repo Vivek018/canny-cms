@@ -19,7 +19,7 @@ export async function Nav({}: MainNavProps) {
   const locale = getLocale();
   const navItems = await getPages(locale as unknown as Lang);
   return (
-    <section className='flex w-full max-w-[1700px] md:pt-4 px-6 md:px-10 h-28 gap-2 items-center justify-between border-[1px] fixed top-0 bg-white border-neutral-secondary z-50'>
+    <section className='flex w-full max-w-[1700px] md:pt-4 px-6 md:px-10 h-28 gap-2 items-center justify-between border-[1px] border-t-0 fixed top-0 bg-white border-neutral-secondary z-50'>
       <MobileNav items={navItems} lang={locale} />
       <DesktopNav items={navItems} lang={locale} className='order-2' />
       <Link
