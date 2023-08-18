@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import "../globals.css";
 import { Inter } from "next/font/google";
 import { siteConfig } from "@/constants";
-import { Lang, i18nLanguageType } from "@/types";
+import { Lang } from "@/types";
 import { setLocale } from "@/context/language-context";
 import { ProviderWrapper } from "./_components/ProviderWrapper";
 import { ComponentWrapper } from "./_components/ComponentWrapper";
